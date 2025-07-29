@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Explore the entire WHATIN Ecosystem - innovative platforms, projects and portfolio.">
+  <meta name="keywords" content="Whatin, Ecosystem, Projects, Portfolio, Padhai, Tech">
+  <meta name="author" content="Dushyant Saini">
+  <title>WHATIN Ecosystem</title>
+  <link rel="icon" href="https://whatin.in/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .navbar h1 {
+      background: linear-gradient(to right, #38bdf8, #0ea5e9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+
+    .nav-link {
+      color: #e0f2fe;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #7dd3fc;
+      transform: scale(1.05);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+    }
+
+    .card img {
+      /* height: 200px;
+      width: 100%;
+      object-fit: cover; */
+      
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+
+    }
+
+    .why-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin: 0 auto 10px;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .footer {
+      background: rgba(255, 255, 255, 0.03);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.875rem;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+    <h1>WHATIN 🌐</h1>
+    <nav class="space-x-6">
+      <button onclick="showSection('home')" class="nav-link font-medium">Home</button>
+      <button onclick="showSection('about')" class="nav-link font-medium">About</button>
+    </nav>
+  </div>
+
+  <!-- Home Section -->
+  <section id="home" class="section active px-6 py-12 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-cyan-300 mb-4">Welcome to WHATIN Ecosystem</h2>
+      <p class="text-lg text-blue-100 max-w-2xl mx-auto">A powerful ecosystem crafted for students and creators, blending innovation, simplicity, and purpose. Your digital toolkit for the next-gen web.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <a href="https://toppernotes.whatin.in/" target="_blank" class="card">
+        <img src="C:\c language\image\topper_notes.png" alt="Topper Notes">
+        <div class="p-5 text-center">
+          <h3 class="text-xl font-semibold text-cyan-200">topper notes</h3>
+          <p class="text-sm text-blue-100 mt-1">all subjects unitwise toppers notes Btech (AKTU).</p>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="https://padhai.whatin.in/" target="_blank" class="card">
+        <img src="C:\c language\image\previous_year_paper.png" alt="previous_year_paper">
+        <div class="p-5 text-center">
+          <h3 class="text-xl font-semibold text-cyan-200">previous year paper</h3>
+          <p class="text-sm text-blue-100 mt-1">PYP for all subject Btech (AKTU).</p>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="https://unitwise.whatin.in/" target="_blank" class="card">
+        <img src="C:\c language\image\importan_question.png" alt="importan_question">
+        <div class="p-5 text-center">
+          <h3 class="text-xl font-semibold text-cyan-200">Important question</h3>
+          <p class="text-sm text-blue-100 mt-1">unit wise all subject importan question Btech (AKTU).</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- WHY USE WHATIN SECTION -->
+    <div class="mt-20 text-center">
+      <h2 class="text-3xl font-bold text-cyan-300 mb-4">Why Use WHATIN?</h2>
+      <p class="text-blue-100 mb-10">Here’s what makes WHATIN your go-to ecosystem 👇</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="why-card bg-white bg-opacity-5 p-6 rounded-xl text-center border border-white border-opacity-10">
+          <img src="https://cdn-icons-png.flaticon.com/512/2721/2721294.png" alt="Fast Access">
+          <h3 class="text-lg font-semibold text-cyan-200 mt-3">Fast & Easy Access</h3>
+          <p class="text-blue-100 mt-2 text-sm">Get notes, portfolio, and updates instantly with minimal clicks.</p>
+        </div>
+        <div class="why-card bg-white bg-opacity-5 p-6 rounded-xl text-center border border-white border-opacity-10">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Student Friendly">
+          <h3 class="text-lg font-semibold text-cyan-200 mt-3">Built for Students</h3>
+          <p class="text-blue-100 mt-2 text-sm">WHATIN is designed keeping every student’s need in mind.</p>
+        </div>
+        <div class="why-card bg-white bg-opacity-5 p-6 rounded-xl text-center border border-white border-opacity-10">
+          <img src="https://cdn-icons-png.flaticon.com/512/3446/3446509.png" alt="All-in-One">
+          <h3 class="text-lg font-semibold text-cyan-200 mt-3">One-Stop Hub</h3>
+          <p class="text-blue-100 mt-2 text-sm">Everything from study materials to showcasing projects in one place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section px-6 py-12 max-w-5xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-cyan-300">About WHATIN</h2>
+      <p class="text-blue-100 mt-3">We Hack Amazing Tech Ideas for Nextgen 🚀</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 text-blue-100">
+      <div class="bg-white bg-opacity-5 p-6 rounded-xl border border-white border-opacity-10">
+        <h3 class="text-lg font-semibold text-cyan-200">Our Mission</h3>
+        <p class="mt-2">Empowering students with smarter tools, notes, and platforms.</p>
+      </div>
+      <div class="bg-white bg-opacity-5 p-6 rounded-xl border border-white border-opacity-10">
+        <h3 class="text-lg font-semibold text-cyan-200">Our Vision</h3>
+        <p class="mt-2">To become India’s leading student-first digital hub.</p>
+      </div>
+      <div class="bg-white bg-opacity-5 p-6 rounded-xl border border-white border-opacity-10">
+        <h3 class="text-lg font-semibold text-cyan-200">Our Values</h3>
+        <p class="mt-2">Simplicity, Impact, Innovation, and Open Learning.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer mt-16">
+    © 2025 WHATIN Ecosystem | Built by Dushyant Saini
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
