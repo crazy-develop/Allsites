@@ -1,0 +1,207 @@
+:root {
+      --primary: #4f46e5;
+      --primary-dark: #312e81;
+      --text: #1f2937;
+      --card-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #f9f9fb, #e3e8f0);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #111827;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: var(--primary-dark);
+      padding: 0.8rem;
+    }
+
+    nav button {
+      background-color: var(--primary);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    nav button:hover {
+      background-color: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .year {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border-radius: 1.2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border: 1px solid var(--glass-border);
+    }
+
+    .year h2 {
+      font-size: 1.6rem;
+      padding: 1rem;
+      background-color: rgba(79, 70, 229, 0.1);
+      color: var(--primary-dark);
+      cursor: pointer;
+    }
+
+    .subjects {
+      display: none;
+      padding: 1rem 1.5rem;
+      animation: slideDown 0.4s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .subject h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+
+    .units {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .unit {
+      background-color: rgba(255, 255, 255, 0.25);
+      border-radius: 1rem;
+      padding: 1rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s;
+    }
+
+    .unit:hover {
+      transform: translateY(-5px);
+      background-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .unit-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .unit-buttons a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .unit-buttons a:hover {
+      background-color: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    #about-section {
+      display: none;
+      background: rgba(255, 255, 255, 0.3);
+      border-top: 3px solid var(--primary-dark);
+      text-align: center;
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      backdrop-filter: blur(14px);
+    }
+
+    #about-section h2 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+    }
+
+    #about-section p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    #back-btn {
+      margin-top: 2rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: var(--primary);
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #back-btn:hover {
+      background-color: var(--primary-dark);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--primary-dark);
+      color: white;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .units {
+        grid-template-columns: 1fr;
+      }
+
+      .year h2 {
+        font-size: 1.3rem;
+      }
+    }
+  
