@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AKTU Unit Wise Questions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+  <link rel ="stylesheet" href = "unitwise.css">
+</head>
+<body>
+
+  <!-- Header Navigation with Logo -->
+  <header>
+    <div class="logo-container">
+      <img src="whatinlogo.png" alt="WHATIN Logo" />
+      <h2 style="font-weight: 600; margin: 0;">WHATIN</h2>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-button" onclick="showHome()">Home</button>
+      <button class="nav-button" onclick="showAbout()">About Us</button>
+    </div>
+  </header>
+
+  <!-- Home Content Section -->
+  <div class="container" id="home-section">
+    <h1>AKTU 1st Year - Important Questions</h1>
+    <p class="subheading">For B.Tech CSE 1st Year Students</p>
+
+    <button class="subject-btn" onclick="toggleUnits()">📘 Mechanical</button>
+
+    <div class="units-container" id="math2-units" style="display: none;">
+      <div class="unit-box">
+        <a class="unit-link" href="UNIT-1.png" target="_blank">📘 Unit 1 - Click to View</a>
+      </div>
+      <div class="unit-box">
+        <a class="unit-link" href="UNIT-2.png" target="_blank">📘 Unit 2 - Click to View</a>
+      </div>
+      <div class="unit-box">
+        <a class="unit-link" href="UNIT-3.png" target="_blank">📘 Unit 3 - Click to View</a>
+      </div>
+      <div class="unit-box">
+        <a class="unit-link" href="UNIT-4.png" target="_blank">📘 Unit 4 - Click to View</a>
+      </div>
+      <div class="unit-box">
+        <a class="unit-link" href="UNIT-5.png" target="_blank">📘 Unit 5 - Click to View</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="about-section" id="about-section">
+    <h2>About Us</h2>
+    <p>Hello! 👋 I'm <strong>Dushyant Saini</strong>, the creator of this platform.</p>
+    <p>This website is built to help AKTU students access <strong>unit-wise important questions</strong> easily and effectively.</p>
+    <p>If you have suggestions, feedback or want to collaborate, feel free to contact me:</p>
+    <ul>
+      <li>📧 Email: <a href="mailto:sainidushyant756@gmail.com">sainidushyant756@gmail.com</a></li>
+      <li>🔗 LinkedIn: <a href="https://linkedin.com/in/dushyant-saini-6384a532b" target="_blank">linkedin.com/in/dushyant_saini</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    &copy; 2025 WHATIN | Designed by Dushyant Saini
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function toggleUnits() {
+      const units = document.getElementById("math2-units");
+      units.style.display = (units.style.display === "block") ? "none" : "block";
+    }
+
+    function showAbout() {
+      document.getElementById("home-section").style.display = "none";
+      document.getElementById("about-section").style.display = "block";
+    }
+
+    function showHome() {
+      document.getElementById("home-section").style.display = "block";
+      document.getElementById("about-section").style.display = "none";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
