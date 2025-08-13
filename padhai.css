@@ -1,0 +1,189 @@
+ 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: white;
+    }
+
+    header {
+      padding: 2rem 2rem 1rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+      border-bottom: 2px solid #00bcd4;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    nav button {
+      background: #00e5ff;
+      border: none;
+      color: #1f1c2c;
+      font-weight: bold;
+      padding: 0.6rem 1.2rem;
+      margin: 0 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    nav button:hover {
+      background: #00c2d3;
+    }
+
+    main, .about-section {
+      padding: 2rem;
+    }
+
+    .intro {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+    }
+
+    .branch-heading {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #00e5ff;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-group button {
+      padding: 1rem 2rem;
+      background: #25e5cb;
+      color: #1f1c2c;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s;
+    }
+
+    .btn-group button:hover {
+      background: #e0e0e0;
+    }
+
+    .year-section {
+      display: none;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .year-section.active {
+      display: block;
+    }
+
+    .year-section h3 {
+      color: #ff9800;
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+    }
+
+    .subject-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      padding: 1rem;
+      margin: 0.75rem 0;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    .subject-item:hover {
+      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .subject-item a {
+      color: #00e5ff;
+      text-decoration: none;
+      padding: 0.4rem 0.8rem;
+      background: rgba(0, 229, 255, 0.15);
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .subject-item a:hover {
+      background: rgba(0, 229, 255, 0.3);
+    }
+
+    .about-section {
+      display: none;
+    }
+
+    .about-section.active {
+      display: block;
+    }
+
+    .about-section h2 {
+      font-size: 2rem;
+      color: #00e5ff;
+      margin-bottom: 1rem;
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .fixed-name {
+      position: fixed;
+      bottom: 10px;
+      left: 15px;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.3rem;
+      color: #00e5ff;
+      opacity: 0.9;
+      z-index: 9999;
+      pointer-events: none;
+      user-select: none;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .btn-group {
+        flex-direction: column;
+      }
+      .fixed-name {
+        font-size: 1.1rem;
+      }
+    }
+  
