@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WHATIN - AKTU Previous Year Papers</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Pacifico&display=swap" rel="stylesheet"/>
+
+ <link rel = "stylesheet" href = "padhai.css">
+</head>
+<body>
+  <header>
+    <h1>WHATIN - AKTU Previous Year Papers</h1>
+    <nav>
+      <button onclick="showHome()">Home</button>
+      <button onclick="showAbout()">About</button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <p class="intro">Welcome to the official CSE Previous Year Paper archive for AKTU. Click on the respective year to view subject-wise downloadable PDFs.</p>
+    <div class="branch-heading">Branch: Computer Science & Engineering (CSE)</div>
+
+    <div class="btn-group">
+      <button data-target="year1">1st Year</button>
+      <button data-target="year2">2nd Year</button>
+      <button data-target="year3">3rd Year</button>
+      <button data-target="year4">Final Year</button>
+    </div>
+
+    <!-- YEAR 1 SECTION -->
+    <section class="year-section" id="year1">
+      <h3>1st Year</h3>
+      <div class="subject-item"><span>Mathematics-2</span><a href="https://raw.githubusercontent.com/crazy-develop/phadai/main/math-2.pdf" target="_blank">View PDF</a></div>
+      <div class="subject-item"><span>Physics</span><a href="https://raw.githubusercontent.com/crazy-develop/phadai/main/Physics.pdf" target="_blank">View PDF</a></div>
+      <div class="subject-item"><span>Basic Electrical</span><a href="https://raw.githubusercontent.com/crazy-develop/phadai/main/ELECTRICAL.pdf" target="_blank">View PDF</a></div>
+      <div class="subject-item"><span>Chemistry</span><a href="https://raw.githubusercontent.com/crazy-develop/phadai/main/chemistry.pdf" target="_blank">View PDF</a></div>
+      <div class="subject-item"><span>Soft Skills</span><a href="https://raw.githubusercontent.com/crazy-develop/phadai/main/SOFT%20SKILLS.pdf" target="_blank">View PDF</a></div>
+      <div class="subject-item"><span>EVS</span><a href="https://raw.githubusercontent.com/crazy-develop/phadai/main/EVS.pdf" target="_blank">View PDF</a></div>
+      <div class="subject-item"><span>PPS</span><a href="https://raw.githubusercontent.com/crazy-develop/phadai/main/PPS.pdf" target="_blank">View PDF</a></div>
+      <div class="subject-item"><span>MECHANICAL</span><a href="https://raw.githubusercontent.com/crazy-develop/phadai/main/MECHANICAL.pdf" target="_blank">View PDF</a></div>
+      <div class="subject-item"><span>Electronic</span><a href="https://raw.githubusercontent.com/crazy-develop/phadai/main/electronics.pdf" target="_blank">View PDF</a></div>
+    </section>
+
+    <!-- Future Sections -->
+    <section class="year-section" id="year2"><h3>2nd Year</h3></section>
+    <section class="year-section" id="year3"><h3>3rd Year</h3></section>
+    <section class="year-section" id="year4"><h3>Final Year</h3></section>
+  </main>
+
+  <section class="about-section" id="about">
+    <h2>About WHATIN</h2>
+    <p>WHATIN stands for "We Hack Amazing Tech Ideas for Nextgen". It's a student-driven initiative to build and provide smart platforms that solve real academic problems for AKTU students and beyond.</p>
+    <p>All the papers, resources and tools provided here are free to access and curated with love by students, for students.</p>
+    <p><strong>Founder:</strong> Dushyant Saini</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 WHATIN. All rights reserved. Powered by students, for students.<br>
+    <span style="font-size: 0.85rem; color: #00e5ff;">Designed & Crafted by Dushyant Saini</span>
+    </p>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll(".btn-group button");
+    const yearSections = document.querySelectorAll(".year-section");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        yearSections.forEach(section => section.classList.remove("active"));
+        const target = btn.getAttribute("data-target");
+        document.getElementById(target).classList.add("active");
+      });
+    });
+
+    function showHome() {
+      document.getElementById("main-content").style.display = "block";
+      document.getElementById("about").classList.remove("active");
+    }
+
+    function showAbout() {
+      document.getElementById("main-content").style.display = "none";
+      document.getElementById("about").classList.add("active");
+    }
+
+    // Default visible: 1st year
+    document.getElementById("year1").classList.add("active");
+  </script>
+</body>
+</html>
