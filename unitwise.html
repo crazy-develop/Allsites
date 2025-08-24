@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,81 +6,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AKTU Unit Wise Questions</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
-  <link rel ="stylesheet" href = "unitwise.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header Navigation with Logo -->
   <header>
     <div class="logo-container">
       <img src="whatinlogo.png" alt="WHATIN Logo" />
-      <h2 style="font-weight: 600; margin: 0;">WHATIN</h2>
+      <h2 class="logo-text">WHATIN</h2>
     </div>
     <div class="nav-buttons">
-      <button class="nav-button" onclick="showHome()">Home</button>
-      <button class="nav-button" onclick="showAbout()">About Us</button>
+      <button class="nav-button" onclick="showSection('home-section')">Home</button>
+      <button class="nav-button" onclick="showSection('about-section')">About Us</button>
     </div>
   </header>
 
-  <!-- Home Content Section -->
-  <div class="container" id="home-section">
-    <h1>AKTU 1st Year - Important Questions</h1>
-    <p class="subheading">For B.Tech CSE 1st Year Students</p>
+  <main class="content-wrapper">
+    <div class="container active" id="home-section">
+      <h1>AKTU - Important Questions</h1>
+      <p class="subheading">For B.Tech CSE Students</p>
 
-    <button class="subject-btn" onclick="toggleUnits()">📘 Mechanical</button>
+      <div class="year-buttons">
+        <button class="nav-button active" onclick="showYear('year1', this)">1st Year</button>
+        <button class="nav-button" onclick="showYear('year2', this)">2nd Year</button>
+      </div>
 
-    <div class="units-container" id="math2-units" style="display: none;">
-      <div class="unit-box">
-        <a class="unit-link" href="UNIT-1.png" target="_blank">📘 Unit 1 - Click to View</a>
+      <div class="year-section active" id="year1">
+        <h2>1st Year - Subjects</h2>
+        <div class="subject-card-container">
+          <div class="subject-card">
+            <button class="subject-btn" onclick="toggleUnits('mech-units')">
+              <span>📘 Mechanical</span>
+              <span class="icon">▼</span>
+            </button>
+            <div class="units-container" id="mech-units">
+              <div class="unit-box"><a class="unit-link" href="UNIT-1.png" target="_blank">📘 Unit 1</a></div>
+              <div class="unit-box"><a class="unit-link" href="UNIT-2.png" target="_blank">📘 Unit 2</a></div>
+              <div class="unit-box"><a class="unit-link" href="UNIT-3.png" target="_blank">📘 Unit 3</a></div>
+              <div class="unit-box"><a class="unit-link" href="UNIT-4.png" target="_blank">📘 Unit 4</a></div>
+              <div class="unit-box"><a class="unit-link" href="UNIT-5.png" target="_blank">📘 Unit 5</a></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="unit-box">
-        <a class="unit-link" href="UNIT-2.png" target="_blank">📘 Unit 2 - Click to View</a>
-      </div>
-      <div class="unit-box">
-        <a class="unit-link" href="UNIT-3.png" target="_blank">📘 Unit 3 - Click to View</a>
-      </div>
-      <div class="unit-box">
-        <a class="unit-link" href="UNIT-4.png" target="_blank">📘 Unit 4 - Click to View</a>
-      </div>
-      <div class="unit-box">
-        <a class="unit-link" href="UNIT-5.png" target="_blank">📘 Unit 5 - Click to View</a>
+
+      <div class="year-section" id="year2">
+        <h2>2nd Year - Subjects</h2>
+        <div class="subject-card-container">
+          <div class="subject-card">
+            <button class="subject-btn" onclick="toggleUnits('ds-units')">
+              <span>💻 CYBER SECURITY</span>
+              <span class="icon">▼</span>
+            </button>
+            <div class="units-container" id="ds-units">
+              <div class="unit-box"><a class="unit-link" href="https://drive.google.com/file/d/1xbHteIJPgJJgBSpbNguTech58WulI_Xl/view?usp=drive_link">Unit 1</a></div>
+              <div class="unit-box"><a class="unit-link" href="https://drive.google.com/file/d/197UCbUzttkBOXU8Lh5B1Yo9lYFU_l5qR/view?usp=drive_link">Unit 2</a></div>
+              <div class="unit-box"><a class="unit-link" href="https://drive.google.com/file/d/1xnXggL0TyctGkYEUxpZN3m9Uwkejm3If/view?usp=drive_link">Unit 3</a></div>
+              <div class="unit-box"><a class="unit-link" href="https://drive.google.com/file/d/1n7_tMnrRX6Yet672CGLd7Zek7Sox_3We/view?usp=drive_link">Unit 4</a></div>
+              <div class="unit-box"><a class="unit-link" href="https://drive.google.com/file/d/1NPdwyYa5Jf4JstGlbOtvuPcWwFmzwWtG/view?usp=drive_link">Unit 5</a></div>
+            </div>
+          </div>
+          <div class="subject-card">
+            <button class="subject-btn" onclick="toggleUnits('dbms-units')">
+              <span>🗄️ Database Management</span>
+              <span class="icon">▼</span>
+            </button>
+            <div class="units-container" id="dbms-units">
+              <div class="unit-box"><a class="unit-link" href="#">Unit 1</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 2</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 3</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 4</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 5</a></div>
+            </div>
+          </div>
+          <div class="subject-card">
+            <button class="subject-btn" onclick="toggleUnits('os-units')">
+              <span>🖥️ Operating System</span>
+              <span class="icon">▼</span>
+            </button>
+            <div class="units-container" id="os-units">
+              <div class="unit-box"><a class="unit-link" href="#">Unit 1</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 2</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 3</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 4</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 5</a></div>
+            </div>
+          </div>
+          <div class="subject-card">
+            <button class="subject-btn" onclick="toggleUnits('coa-units')">
+              <span>⚙️ Computer Organization</span>
+              <span class="icon">▼</span>
+            </button>
+            <div class="units-container" id="coa-units">
+              <div class="unit-box"><a class="unit-link" href="#">Unit 1</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 2</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 3</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 4</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 5</a></div>
+            </div>
+          </div>
+          <div class="subject-card">
+            <button class="subject-btn" onclick="toggleUnits('math3-units')">
+              <span>📐 Mathematics-4</span>
+              <span class="icon">▼</span>
+            </button>
+            <div class="units-container" id="math3-units">
+              <div class="unit-box"><a class="unit-link" href="#">Unit 1</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 2</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 3</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 4</a></div>
+              <div class="unit-box"><a class="unit-link" href="#">Unit 5</a></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- About Section -->
-  <div class="about-section" id="about-section">
-    <h2>About Us</h2>
-    <p>Hello! 👋 I'm <strong>Dushyant Saini</strong>, the creator of this platform.</p>
-    <p>This website is built to help AKTU students access <strong>unit-wise important questions</strong> easily and effectively.</p>
-    <p>If you have suggestions, feedback or want to collaborate, feel free to contact me:</p>
-    <ul>
-      <li>📧 Email: <a href="mailto:sainidushyant756@gmail.com">sainidushyant756@gmail.com</a></li>
-      <li>🔗 LinkedIn: <a href="https://linkedin.com/in/dushyant-saini-6384a532b" target="_blank">linkedin.com/in/dushyant_saini</a></li>
-    </ul>
-  </div>
+    <div class="about-section" id="about-section">
+      <div class="about-card">
+        <h2>About Us</h2>
+        <p>Hello! 👋 I'm <strong>Dushyant Saini</strong>, the creator of this platform.</p>
+        <p>This website is built to help AKTU students access <strong>unit-wise important questions</strong> easily and effectively.</p>
+        <p>If you have suggestions, feedback or want to collaborate, feel free to contact me:</p>
+        <ul class="contact-list">
+          <li>📧 Email: <a href="mailto:sainidushyant756@gmail.com">sainidushyant756@gmail.com</a></li>
+          <li>🔗 LinkedIn: <a href="https://linkedin.com/in/dushyant-saini-6384a532b" target="_blank">linkedin.com/in/dushyant_saini</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
 
   <footer>
     &copy; 2025 WHATIN | Designed by Dushyant Saini
   </footer>
 
-  <!-- Script -->
   <script>
-    function toggleUnits() {
-      const units = document.getElementById("math2-units");
-      units.style.display = (units.style.display === "block") ? "none" : "block";
+    function toggleUnits(id) {
+      const units = document.getElementById(id);
+      const subjectBtn = units.previousElementSibling;
+      const icon = subjectBtn.querySelector('.icon');
+
+      const isExpanded = units.classList.toggle('expanded');
+      subjectBtn.classList.toggle('active', isExpanded);
+      icon.textContent = isExpanded ? '▲' : '▼';
     }
 
-    function showAbout() {
-      document.getElementById("home-section").style.display = "none";
-      document.getElementById("about-section").style.display = "block";
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.container, .about-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
     }
 
-    function showHome() {
-      document.getElementById("home-section").style.display = "block";
-      document.getElementById("about-section").style.display = "none";
+    function showYear(yearId, button) {
+      const yearSections = document.querySelectorAll('.year-section');
+      yearSections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(yearId).classList.add('active');
+
+      const yearButtons = document.querySelectorAll('.year-buttons .nav-button');
+      yearButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   </script>
 </body>
 </html>
+
+
