@@ -31,29 +31,24 @@ function toggleYear(heading) {
     }
 }
 
-// Functions to show Home/About sections
+// Function to handle showing/hiding different sections
 function showSection(sectionId) {
-    const sections = document.querySelectorAll('.container');
-    sections.forEach(sec => sec.classList.remove('active'));
+    const homeSection = document.getElementById('home-section');
+    const aboutSection = document.getElementById('about-section');
+    const homeBtn = document.getElementById('home-btn');
+    const aboutBtn = document.getElementById('about-btn');
 
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-        targetSection.style.display = 'block';
-        setTimeout(() => {
-            targetSection.classList.add('active');
-        }, 10);
-
-        document.querySelectorAll('.nav-buttons button').forEach(btn => btn.classList.remove('active'));
-        document.getElementById(sectionId === 'home-section' ? 'home-btn' : 'about-btn').classList.add('active');
+    if (sectionId === 'home-section') {
+        homeSection.style.display = 'block';
+        aboutSection.style.display = 'none';
+        homeBtn.classList.add('active');
+        aboutBtn.classList.remove('active');
+    } else if (sectionId === 'about-section') {
+        homeSection.style.display = 'none';
+        aboutSection.style.display = 'block';
+        aboutBtn.classList.add('active');
+        homeBtn.classList.remove('active');
     }
-}
-
-function showHome() {
-    showSection('home-section');
-}
-
-function showAbout() {
-    showSection('about-section');
 }
 
 // Theme Toggle Functionality
@@ -75,8 +70,23 @@ function toggleTheme() {
     }
 }
 
-// Apply saved theme on load
+// Scroll to Top Button Functionality
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+};
+
+scrollToTopBtn.onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// Event Listeners for Nav Buttons
 document.addEventListener('DOMContentLoaded', () => {
+    // Apply saved theme on load
     const savedTheme = localStorage.getItem('theme') || 'dark';
     const body = document.body;
     const themeToggle = document.querySelector('.theme-toggle');
@@ -94,20 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.add('fa-moon');
     }
 
-    document.getElementById('home-btn').classList.add('active');
+    // Set initial active section
+    showSection('home-section');
+
+    // Add click listeners to buttons
+    document.getElementById('home-btn').addEventListener('click', () => showSection('home-section'));
+    document.getElementById('about-btn').addEventListener('click', () => showSection('about-section'));
+    document.getElementById('back-btn').addEventListener('click', () => showSection('home-section'));
 });
-
-// Scroll to Top Button Functionality
-const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-window.onscroll = function() {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        scrollToTopBtn.style.display = "block";
-    } else {
-        scrollToTopBtn.style.display = "none";
-    }
-};
-
-scrollToTopBtn.onclick = function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-};
