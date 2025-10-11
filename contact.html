@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Links.Whatin.in</title>
+  <meta name="description" content="Connect with Dushyant Saini, the visionary behind Whatin Innovations. Explore our educational platforms for GL Bajaj and AKTU students.">
+  <meta name="keywords" content="Dushyant Saini, Whatin Innovations, Links.Whatin.in, Padhai.Whatin.in, GL Bajaj Notes, AKTU PYQ, Contact Whatin">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #0f172a, #1e293b 70%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 50px;
+      animation: fadeDown 1.2s ease forwards;
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      background: linear-gradient(90deg, #38bdf8, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      color: #cbd5e1;
+      margin-top: 8px;
+      line-height: 1.5;
+      padding: 0 15px;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 25px;
+      width: 90%;
+      max-width: 1100px;
+      padding-bottom: 60px;
+      animation: fadeUp 1.5s ease forwards;
+    }
+
+    .info-box {
+      background: rgba(30, 41, 59, 0.9);
+      padding: 25px 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+      transition: 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      word-wrap: break-word;
+    }
+
+    .info-box::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(56, 189, 248, 0.2), transparent);
+      transition: 0.6s;
+    }
+
+    .info-box:hover::before {
+      top: 100%;
+    }
+
+    .info-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .info-box h3 {
+      color: #38bdf8;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .info-box p {
+  color: #e2e8f0;
+  font-size: 1rem;
+  line-height: 1.6;
+  word-break: break-word;         /* ✅ लंबा text auto-break होगा */
+  overflow-wrap: anywhere;        /* ✅ link और email neatly fit होंगे */
+}
+
+
+    .info-box a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  word-break: break-all;          /* ✅ लंबी links auto wrap होंगी */
+  display: inline-block;          /* ✅ box में alignment बेहतर होगा */
+}
+
+    .info-box a:hover {
+      color: #0ea5e9;
+    }
+
+    .resources {
+      text-align: center;
+      background: #0f172a;
+      padding: 60px 20px;
+      width: 100%;
+      animation: fadeUp 1.8s ease forwards;
+    }
+
+    .resources h2 {
+      color: #38bdf8;
+      margin-bottom: 20px;
+      font-size: clamp(1.6rem, 4vw, 2rem);
+    }
+
+    .resources ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 0;
+    }
+
+    .resources li {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 12px 20px;
+      color: #e2e8f0;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+    }
+
+    .resources li:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      background: #0f172a;
+      width: 100%;
+      padding: 20px 10px;
+      font-size: clamp(0.8rem, 2.3vw, 0.9rem);
+      animation: fadeUp 2s ease forwards;
+      line-height: 1.5;
+    }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ✅ Responsive Design Tweaks */
+    @media (max-width: 768px) {
+      header {
+        padding: 60px 10px 40px;
+      }
+      .info-box {
+        padding: 20px 15px;
+      }
+      .resources ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      .resources li {
+        width: 80%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.9rem;
+      }
+      .info-box h3 {
+        font-size: 1.2rem;
+      }
+      .info-box p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Whatin Innovations</h1>
+    <p>Building the future of learning and technology for students of GL Bajaj & AKTU.</p>
+  </header>
+
+  <section class="contact-container">
+    <div class="info-box">
+      <h3>Visionary</h3>
+      <p><strong>Name:</strong> Dushyant Saini<br>
+         <strong>Email:</strong> <a href="mailto:dushyantsaini.whatin@gmail.com">dushyantsaini.whatin@gmail.com</a><br>
+         <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/dushyant-saini" target="_blank">linkedin.com/in/dushyant-saini</a>
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>About Whatin Innovations</h3>
+      <p>We Hack Amazing Tech Ideas for Nextgen 🚀<br>
+      Whatin Innovations aims to simplify education and innovation for college students through platforms that provide resources, ideas, and real opportunities to grow.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>Our Other Sites</h3>
+      <p>
+        🌐 <a href="https://whatin.in" target="_blank">Whatin.in</a> — Main Portal of Whatin Ecosystem<br><br>
+        📘 <a href="https://padhai.whatin.in" target="_blank">Padhai.Whatin.in</a> — Notes, PYQs & Study Material<br><br>
+        📄 <a href="https://links.whatin.in" target="_blank">Links.Whatin.in</a> — Toppers Notes & GL Bajaj Resources
+      </p>
+    </div>
+  </section>
+
+  <section class="resources">
+    <h2>Explore More on Whatin Network</h2>
+    <ul>
+      <li>GL Bajaj Topper Notes</li>
+      <li>AKTU Previous Year Papers</li>
+      <li>Unit-wise PDFs</li>
+      <li>Programming Resources</li>
+      <li>College Projects</li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2025 Links.Whatin.in | Designed by Dushyant Saini | Whatin Innovations | All Rights Reserved
+  </footer>
+
+</body>
+</html>
