@@ -1,3 +1,4 @@
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E97CV891FV"></script>
 <script>
@@ -102,16 +103,80 @@ central link website
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
    <link rel="icon" type="image/png" href="whatinlogo.png">
     <link rel="stylesheet" href="style.css">
+     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+    body { background:#0f172a; color:white; }
+
+    /* ---------- HEADER ---------- */
+    header {
+      position: sticky; top:0; width:100%; background:rgba(15,23,42,0.95);
+      display:flex; justify-content:space-between; align-items:center;
+      padding:18px 40px; z-index:1000; box-shadow:0 0 15px rgba(56,189,248,0.15);
+      backdrop-filter: blur(6px);
+    }
+    .logo { font-size:1.7rem; font-weight:600; background:linear-gradient(90deg,#38bdf8,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    nav { display:flex; gap:30px; }
+    nav a { color:#e2e8f0; text-decoration:none; font-weight:500; position:relative; transition:color 0.3s; }
+    nav a::after { content:""; position:absolute; bottom:-5px; left:0; width:0%; height:2px; background:#38bdf8; transition:width 0.3s ease; }
+    nav a:hover { color:#38bdf8; }
+    nav a:hover::after { width:100%; }
+
+    .menu-btn { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+    .menu-btn div { width:25px; height:3px; background-color:#38bdf8; border-radius:5px; transition:0.3s; }
+
+    @media(max-width:768px){
+      nav { display:none; flex-direction:column; background: rgba(30,41,59,0.95); width:100%; position:absolute; top:65px; left:0; text-align:center; padding:15px 0; border-top:1px solid rgba(56,189,248,0.2);}
+      nav a { padding:10px 0; display:block; }
+      .menu-btn { display:flex; }
+      nav.active { display:flex; animation: slideDown 0.4s ease; }
+    }
+    @keyframes slideDown { from {opacity:0; transform:translateY(-10px);} to {opacity:1; transform:translateY(0);} }
+    .rotate1 { transform: rotate(45deg) translate(5px,5px); }
+    .rotate2 { transform: rotate(-45deg) translate(5px,-5px); }
+    .hide { opacity:0; }
+
+    /* ---------- SECTIONS ---------- */
+    .section { display:none; }
+    .section.active { display:block; }
+
+    .card img { width:100%; border-radius:10px; }
+    .card:hover { transform: translateY(-5px); transition:0.3s; }
+
+    .why-card img { width:50px; height:50px; margin:0 auto; }
+    footer { text-align:center; padding:20px; color:#94a3b8; border-top:1px solid rgba(56,189,248,0.2); margin-top:40px; }
+
+    /* Floating Video */
+    #floating-video { position:fixed; bottom:16px; right:16px; z-index:9999; }
+    #floating-video video { width:200px; height:112px; border-radius:10px; }
+    .fv-close { position:absolute; top:-8px; right:-8px; background:#ef4444; color:white; border:none; border-radius:50%; width:24px; height:24px; cursor:pointer; font-weight:bold; }
+  </style>
 </head>
 <body>
 
-  <div class="navbar px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+    <header>
+  <div class="logo">WHATIN 🌐</div>
+  <nav id="navMenu">
+    <a href="#home" onclick="showSection('home')">Home</a>
+    <a href="#about" onclick="showSection('about')">About</a>
+    <a href="#contact" onclick="showSection('contact')">Contact</a>
+    <a href="https://whatin.in" target="_blank">Main Site</a>
+  </nav>
+  <div class="menu-btn" id="menuBtn">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</header>
+
+
+  <!-- <div class="navbar px-6 py-4 flex justify-between items-center sticky top-0 z-50">
     <h1>WHATIN 🌐</h1>
     <nav class="space-x-6">
       <button onclick="showSection('home')" class="nav-link font-medium active-nav">Home</button>
       <button onclick="showSection('about')" class="nav-link font-medium">About</button>
     </nav>
-  </div>
+  </div> -->
 
   <section id="home" class="section active px-6 py-12 max-w-7xl mx-auto">
     <div class="text-center mb-12">
@@ -120,7 +185,7 @@ central link website
     </div>
 
     <div class="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <a href="collegepyp.html" target="_blank" class="card">
+      <a class='card' href='/collegepyp' target='_blank'>
         <img src="https://crazy-develop.github.io/Allsites/GLBAJAJ.png" alt="GL BAJAJ PYP">
         <div class="p-5 text-center">
           <h3 class="text-xl font-semibold text-cyan-200">GL BAJAJ MATHURA PYP</h3>
@@ -128,7 +193,7 @@ central link website
         </div>
       </a>
 
-      <a href="topper.html" target="_blank" class="card">
+      <a class='card' href='/topper' target='_blank'>
         <img src="https://crazy-develop.github.io/Allsites/topper_notes.png" alt="Topper Notes">
         <div class="p-5 text-center">
           <h3 class="text-xl font-semibold text-cyan-200">Topper Notes</h3>
@@ -136,7 +201,7 @@ central link website
         </div>
       </a>
 
-      <a href="padhai.html" target="_blank" class="card">
+      <a class='card' href='/padhai' target='_blank'>
         <img src="https://crazy-develop.github.io/Allsites/previous_year_paper.png" alt="Previous Year Papers">
         <div class="p-5 text-center">
           <h3 class="text-xl font-semibold text-cyan-200">Previous Year Papers</h3>
@@ -144,7 +209,7 @@ central link website
         </div>
       </a>
 
-      <a href="unitwise.html" target="_blank" class="card">
+      <a class='card' href='/unitwise' target='_blank'>
         <img src="https://crazy-develop.github.io/Allsites/importan_question.png" alt="Important Questions">
         <div class="p-5 text-center">
           <h3 class="text-xl font-semibold text-cyan-200">Important Questions</h3>
