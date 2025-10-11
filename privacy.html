@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy | Whatin Innovations</title>
 <meta name="description" content="Privacy Policy of Whatin Innovations. Learn how we handle user data responsibly on links.whatin.in, padhai.whatin.in and whatin.in.">
-<meta name="keywords" content="Privacy Policy, Whatin Innovations, links.whatin.in, padhai.whatin.in, user data, GL Bajaj notes, AKTU PYQ">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-KLqvM4o6u9zQyJMP+c2D+hgPJ5vVftLFo+ujtce0/SF5/0RLM8j1++Zl+WZB1f9KPrl7pDJZxigL39j+Yq/0bQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
+/* --- General Body & Fonts --- */
 body {
   margin:0;
   font-family:'Poppins',sans-serif;
@@ -18,12 +19,38 @@ body {
   color:#e2e8f0;
   line-height:1.7;
   overflow-x:hidden;
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 
+/* --- Navbar --- */
+.navbar {
+  position: sticky;
+  top:0;
+  width:100%;
+  background: rgba(30,41,59,0.95);
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px 30px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.navbar a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 25px;
+  transition: 0.3s;
+}
+.navbar a:hover {
+  color:#0ea5e9;
+  text-decoration: underline;
+}
+
+/* --- Header --- */
 header {
   text-align:center;
-  padding:70px 20px 40px;
+  padding:50px 20px 30px;
   animation: fadeDown 1s ease forwards;
 }
 header h1 {
@@ -41,6 +68,7 @@ header p {
   animation: fadeUp 1.5s ease forwards;
 }
 
+/* --- Content --- */
 .content {
   max-width:900px;
   margin:0 auto;
@@ -84,6 +112,7 @@ ul { padding-left:25px; margin-bottom:12px; }
 a { color:#38bdf8; text-decoration:none; transition:0.3s; }
 a:hover { color:#0ea5e9; text-decoration:underline; }
 
+/* --- Footer --- */
 footer {
   text-align:center;
   padding:20px;
@@ -93,7 +122,7 @@ footer {
   animation: fadeUp 2s ease forwards;
 }
 
-/* Back to top button */
+/* --- Back to top button --- */
 #topBtn {
   position: fixed;
   bottom:30px;
@@ -111,7 +140,7 @@ footer {
 }
 #topBtn:hover { background:#06b6d4; }
 
-/* Animations */
+/* --- Animations --- */
 @keyframes fadeDown {
   from {opacity:0; transform:translateY(-20px);}
   to {opacity:1; transform:translateY(0);}
@@ -131,10 +160,17 @@ footer {
 
 @media (max-width:768px){
   .section h2 { font-size:1.3rem; }
+  .navbar { flex-direction: column; align-items: flex-start; }
+  .navbar a { margin: 8px 0; }
 }
 </style>
 </head>
 <body>
+
+<!-- --- Navbar --- -->
+<div class="navbar">
+  <a href="https://links.whatin.in" target="_blank"><i class="fas fa-home"></i> Home</a>
+</div>
 
 <header>
   <h1>Privacy Policy</h1>
@@ -195,7 +231,6 @@ footer {
       LinkedIn: <a href="https://linkedin.com/in/dushyant-saini" target="_blank">linkedin.com/in/dushyant-saini</a>
     </p>
   </div>
-
 </div>
 
 <footer>
@@ -222,3 +257,4 @@ topBtn.addEventListener("click", () => {
 
 </body>
 </html>
+
