@@ -208,6 +208,17 @@ In essence, WHATIN is more than a study platform; it is a trusted companion for 
     font-size: 1rem;
   }
 }
+
+  .units-container {
+  display: none;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.units-container.expanded {
+  display: block;
+}
+
 </style>
 
   </main>
@@ -215,40 +226,40 @@ In essence, WHATIN is more than a study platform; it is a trusted companion for 
   <footer>
     &copy; 2025 WHATIN | Designed by Dushyant Saini
   </footer>
+<script>
+function toggleUnits(id) {
+  const units = document.getElementById(id);
+  const subjectBtn = units.previousElementSibling;
+  const icon = subjectBtn.querySelector('.icon');
 
-  <script>
-    function toggleUnits(id) {
-      const units = document.getElementById(id);
-      const subjectBtn = units.previousElementSibling;
-      const icon = subjectBtn.querySelector('.icon');
+  const isExpanded = units.classList.toggle('expanded');
+  subjectBtn.classList.toggle('active', isExpanded);
+  icon.textContent = isExpanded ? '▲' : '▼';
+}
 
-      const isExpanded = units.classList.toggle('expanded');
-      subjectBtn.classList.toggle('active', isExpanded);
-      icon.textContent = isExpanded ? '▲' : '▼';
+function showSection(sectionId) {
+  const sections = document.querySelectorAll('.container, .about-section');
+  sections.forEach(section => {
+    // unit-questions को hide न करें
+    if(section.id !== 'unit-questions'){
+      section.classList.remove('active');
     }
+  });
+  document.getElementById(sectionId).classList.add('active');
+}
 
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('.container, .about-section');
-      sections.forEach(section => {
-        section.classList.remove('active');
-      });
-      document.getElementById(sectionId).classList.add('active');
-    }
+function showYear(yearId, button) {
+  const yearSections = document.querySelectorAll('.year-section');
+  yearSections.forEach(section => section.classList.remove('active'));
+  document.getElementById(yearId).classList.add('active');
 
-    function showYear(yearId, button) {
-      const yearSections = document.querySelectorAll('.year-section');
-      yearSections.forEach(section => {
-        section.classList.remove('active');
-      });
-      document.getElementById(yearId).classList.add('active');
+  const yearButtons = document.querySelectorAll('.year-buttons .nav-button');
+  yearButtons.forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
 
-      const yearButtons = document.querySelectorAll('.year-buttons .nav-button');
-      yearButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  </script>
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+</script>
 </body>
 </html>
 
