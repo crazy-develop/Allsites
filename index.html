@@ -153,16 +153,14 @@ central link website
   </style>
 </head>
 <body>
-
-    <header>
+<header>
   <div class="logo">WHATIN 🌐</div>
   <nav id="navMenu">
     <a href="#home" onclick="showSection('home')">Home</a>
     <a href="#about" onclick="showSection('about')">About</a>
-    <a href="contact.html" onclick="showSection('contact')">Contact</a>
-     <a href="privacy.html" onclick="showSection('privacy')">privacy</a>
-      <a href="term.html" onclick="showSection('privacy')">Term & condition</a>
-    <a href="https://whatin.in" target="_blank">Main Site</a>
+    <a href="#contact" onclick="showSection('contact')">Contact</a>
+    <a href="#privacy" onclick="showSection('privacy')">Privacy</a>
+    <a href="#term" onclick="showSection('term')">Terms</a>
   </nav>
   <div class="menu-btn" id="menuBtn">
     <div></div>
@@ -172,13 +170,15 @@ central link website
 </header>
 
 
-  <!-- <div class="navbar px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-    <h1>WHATIN 🌐</h1>
-    <nav class="space-x-6">
-      <button onclick="showSection('home')" class="nav-link font-medium active-nav">Home</button>
-      <button onclick="showSection('about')" class="nav-link font-medium">About</button>
-    </nav>
-  </div> -->
+
+<style>
+@media(max-width:768px){
+  nav { display:none; flex-direction:column; }
+  nav.active { display:flex; }
+  .menu-btn { display:flex; }
+}
+</style>
+
 
   <section id="home" class="section active px-6 py-12 max-w-7xl mx-auto">
     <div class="text-center mb-12">
@@ -307,6 +307,24 @@ central link website
   </footer>
 
   <script>
+    <script>
+  // Hamburger Menu
+  const menuBtn = document.getElementById('menuBtn');
+const navMenu = document.getElementById('navMenu');
+
+menuBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+  menuBtn.children[0].classList.toggle('rotate1');
+  menuBtn.children[1].classList.toggle('hide');
+  menuBtn.children[2].classList.toggle('rotate2');
+});
+
+  // Section switch
+  function showSection(sectionId){
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+  }
+</script>
     document.addEventListener('DOMContentLoaded', () => {
       // Function to show the selected section and update active nav link
       window.showSection = function(sectionId) {
