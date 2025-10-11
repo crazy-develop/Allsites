@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - WHATIN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: #e0f2fe;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-80 backdrop-blur-md z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-2xl font-bold text-cyan-300">WHATIN 🌐</h1>
+      <nav class="space-x-6">
+        <a href="index.html" class="text-blue-100 hover:text-cyan-300 font-medium transition-colors">Home</a>
+        <a href="about.html" class="text-cyan-300 font-semibold">About</a>
+        <a href="contact.html" class="text-blue-100 hover:text-cyan-300 font-medium transition-colors">Contact</a>
+        <a href="privacy.html" class="text-blue-100 hover:text-cyan-300 font-medium transition-colors">Privacy Policy</a>
+        <a href="terms.html" class="text-blue-100 hover:text-cyan-300 font-medium transition-colors">Terms & Conditions</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 text-center">
+    <h1 class="text-5xl sm:text-6xl font-bold text-cyan-300 mb-4">About WHATIN</h1>
+    <p class="text-blue-100 text-lg sm:text-xl max-w-3xl mx-auto">Discover how WHATIN empowers students, provides authentic resources, and creates a smarter way to learn and excel.</p>
+  </section>
+
+  <!-- Content Section -->
+  <section class="max-w-5xl mx-auto px-6 py-20 space-y-12">
+
+    <div class="fade-in bg-white bg-opacity-5 p-8 rounded-xl border border-white border-opacity-10 shadow-lg">
+      <h2 class="text-3xl font-bold text-cyan-200 mb-4">Our Founder</h2>
+      <p class="text-blue-100 text-lg text-justify">Hello! I am <strong>Dushyant Saini</strong>, the founder of <strong>WHATIN</strong> — a comprehensive digital ecosystem designed to empower students, enhance learning, and provide easy access to high-quality academic resources. Our vision is to create a platform where students from all colleges, years, and streams can find everything they need for their academic and creative growth in one place. At WHATIN, we strongly believe that learning should be accessible, simple, and effective, and that’s why we are committed to providing resources that are not only authentic and original but also free for all learners.</p>
+    </div>
+
+    <div class="fade-in bg-white bg-opacity-5 p-8 rounded-xl border border-white border-opacity-10 shadow-lg">
+      <h2 class="text-3xl font-bold text-cyan-200 mb-4">What We Offer</h2>
+      <p class="text-blue-100 text-lg text-justify">WHATIN offers a wide range of educational materials, including <strong>GL Bajaj toppers’ notes, AKTU previous year papers (PYP), unit-wise important questions, and detailed study guides</strong>. Each resource is carefully curated by our team to ensure quality, relevance, and authenticity. By providing these resources, we aim to help students focus on understanding concepts, practicing effectively, and excelling in exams without the stress of searching for scattered materials across multiple platforms.</p>
+    </div>
+
+    <div class="fade-in bg-white bg-opacity-5 p-8 rounded-xl border border-white border-opacity-10 shadow-lg">
+      <h2 class="text-3xl font-bold text-cyan-200 mb-4">Student-Centric Approach</h2>
+      <p class="text-blue-100 text-lg text-justify">Our platform is designed with students in mind. The user interface is intuitive, mobile-friendly, and responsive, allowing learners to access materials anytime, anywhere. WHATIN is more than just a repository of notes; it is a <strong>learning companion</strong> that supports students in achieving academic excellence and personal growth. From exam preparation to project showcases and portfolio building, we provide a holistic approach to learning, encouraging students to explore their potential and develop skills that go beyond textbooks.</p>
+    </div>
+
+    <div class="fade-in bg-white bg-opacity-5 p-8 rounded-xl border border-white border-opacity-10 shadow-lg">
+      <h2 class="text-3xl font-bold text-cyan-200 mb-4">Our Mission</h2>
+      <p class="text-blue-100 text-lg text-justify">At WHATIN, we focus on motivation, inspiration, and empowerment. We understand that the academic journey can be challenging, and our goal is to provide students with the tools and guidance they need to succeed. By offering free and original content, we remove barriers to education, enabling every student to access quality resources and enhance their learning experience. Each section of the platform is carefully structured to make navigation easy, ensuring that students can find exactly what they need quickly and efficiently.</p>
+    </div>
+
+    <div class="fade-in bg-white bg-opacity-5 p-8 rounded-xl border border-white border-opacity-10 shadow-lg">
+      <h2 class="text-3xl font-bold text-cyan-200 mb-4">Why WHATIN?</h2>
+      <p class="text-blue-100 text-lg text-justify">In essence, WHATIN is a trusted ecosystem for students — a platform where <strong>knowledge, learning, and innovation come together</strong>. I, Dushyant Saini, am dedicated to creating an environment where students can grow academically, explore their creativity, and build confidence for their future careers. Our mission is to ensure that every student can access high-quality, authentic, and free educational resources, helping them achieve their goals and unlock their full potential.</p>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 bg-opacity-80 backdrop-blur-md py-8 mt-12 text-center">
+    <p class="text-blue-100">© 2025 WHATIN. All Rights Reserved. Designed by <strong>Dushyant Saini</strong></p>
+  </footer>
+
+  <!-- Animation Script -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+
+</body>
+</html>
