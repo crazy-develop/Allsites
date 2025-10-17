@@ -1,0 +1,331 @@
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E97CV891FV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E97CV891FV');
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UP Scholarship Portal | Whatin - Professional V5</title>
+   <meta name="google-adsense-account" content="ca-pub-3296618712266727">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #1a73e8;
+      --secondary-color: #28a745;
+      --attention-color: #ff9800;
+      --news-color: #00bcd4;
+      --background-color: #f0f2f5;
+      --card-bg: #ffffff;
+      --text-dark: #202124;
+      --text-light: #5f6368;
+      --subtle-border: #e0e0e0;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+    body { background-color: var(--background-color); color: var(--text-dark); line-height: 1.6; scroll-behavior: smooth; font-weight: 400; }
+
+    header {
+      background: var(--primary-color);
+      color:#fff;
+      padding:2.5rem 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo-placeholder { font-size: 2rem; margin-bottom: 0.5rem; color: #ffffff; }
+    header h1 { font-size:2.4rem; font-weight:700; margin-bottom: 0.25rem; }
+    header p { font-size:1.1rem; opacity:0.9; font-weight: 300; }
+
+    .container { width:95%; max-width:1000px; margin:2rem auto; padding:1.5rem; }
+
+    .card {
+      background: var(--card-bg);
+      padding:2rem;
+      border-radius:12px;
+      border: 1px solid var(--subtle-border);
+      box-shadow:0 6px 20px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow:0 8px 30px rgba(0,0,0,0.1); }
+
+    .section-title {
+      font-size:1.6rem;
+      font-weight:600;
+      margin-bottom:1.5rem;
+      color: var(--text-dark);
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+    }
+    .section-title i { color: var(--primary-color); margin-right: 0.5rem; }
+
+    .tabs { display:flex; justify-content:flex-start; border-bottom: 1px solid var(--subtle-border); margin-bottom: 1.5rem; }
+    .tab { padding:0.8rem 1.5rem; cursor:pointer; font-weight:500; color: var(--text-light); border-bottom: 3px solid transparent; transition: all 0.3s; }
+    .tab.active { color: var(--primary-color); border-bottom-color: var(--primary-color); font-weight: 600; }
+    .tab:hover { color: var(--primary-color); }
+
+    .categories {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap:1.2rem;
+      margin-bottom:2rem;
+    }
+    .btn {
+      background: #f0f7ff;
+      border:1px solid #c3dafb;
+      color: var(--primary-color);
+      padding:1.2rem 0.5rem;
+      border-radius:10px;
+      font-weight:500;
+      cursor:pointer;
+      transition:all 0.3s;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .btn i { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .btn:hover { background: var(--primary-color); color:#fff; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(26, 115, 232, 0.4); }
+
+    .btn-special { background: #fff8e1; border-color: #ffecb3; color: var(--attention-color); }
+    .btn-special:hover { background: var(--attention-color); color: #fff; box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4); }
+    .btn-document { background: #e8f5e9; border-color: #c8e6c9; color: var(--secondary-color); }
+    .btn-document:hover { background: var(--secondary-color); color: #fff; box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4); }
+
+    .subcategories { display:none; flex-direction:column; gap:0.75rem; padding: 1rem 0; }
+    .subcategories.active { display:flex; }
+    .sub-btn { 
+        padding:1rem 1.25rem; 
+        border-radius:8px; 
+        cursor:pointer; 
+        font-weight:500; 
+        text-align:left; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        transition: all 0.3s ease; 
+        text-decoration: none; 
+        color: var(--text-dark); 
+        background: #f7f9fa; 
+        border-left: 5px solid var(--primary-color);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .sub-btn:hover { transform: translateX(5px); background: #eaf3ff; color: var(--primary-color); }
+    .sub-btn i { color: var(--primary-color); }
+
+    .document-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem; list-style: none; }
+    .document-list li { background: #f7f9fa; padding: 1rem; border-left: 4px solid var(--secondary-color); border-radius: 4px; font-weight: 500; display: flex; align-items: center; transition: background-color 0.2s; }
+    .document-list li:hover { background: #e8f5e9; }
+    .document-list li i { color: var(--secondary-color); margin-right: 0.75rem; font-size: 1.1rem; }
+
+    .pdf-link-container a { display: inline-flex; align-items: center; margin-top: 1.5rem; color: #dc3545; font-weight: 500; text-decoration: none; transition: color 0.3s; }
+    .pdf-link-container a:hover { color: #a01a28; }
+    .pdf-link-container a i { margin-right: 0.5rem; }
+
+    .status-check-card { background: linear-gradient(135deg, #3c8ce7 0%, #007bff 100%); color: #fff; text-align: center; padding: 3rem 2rem; border-radius: 12px; border: none; }
+    .status-check-card .section-title { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.5); margin-bottom: 1rem; }
+    .status-check-card .section-title i { color: #ffe082; }
+    .status-check-card p { opacity: 0.9; margin-bottom: 1.5rem; font-size: 1.1rem; }
+    .status-check-card i.fa-money-check-alt { font-size: 3rem; margin-bottom: 1rem; color: #ffe082; }
+
+    .status-check-btn { display: inline-block; background: #ffc107; color: var(--text-dark); padding: 0.75rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 15px rgba(255, 193, 7, 0.6); transition: all 0.3s ease; }
+    .status-check-btn:hover { background: #ff9800; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6); }
+
+    .news-section .section-title { color: var(--news-color); }
+    .news-section .section-title i { color: var(--news-color); }
+
+    .news-container { display:flex; flex-direction:column; gap:1rem; }
+    a.news-box-link { background:#fff; border:1px solid var(--subtle-border); border-radius:8px; padding:1.2rem; box-shadow:0 2px 8px rgba(0,0,0,0.05); border-left: 5px solid; display: block; text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    a.news-box-link:hover { background: #fcfcfc; box-shadow:0 4px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .news-box-link:nth-child(1){ border-left-color: var(--news-color); }
+    .news-box-link:nth-child(2){ border-left-color:var(--attention-color); }
+    .news-box-link:nth-child(3){ border-left-color:#dc3545; }
+    .news-box-link:nth-child(4){ border-left-color:#20c997; }
+    .news-box-link h4 { font-size:1.15rem; font-weight:600; color:var(--text-dark); margin-bottom:0.4rem; }
+    .news-box-link p { font-size:0.95rem; color:var(--text-light); }
+    .news-box-link strong { color: #dc3545; font-weight: 700; }
+    .news-box-link i.fa-external-link-alt { font-size: 0.75rem; color: var(--primary-color); margin-left: 0.5rem; }
+
+    footer { background: #e8eefc; padding: 2rem 1rem; text-align: center; color: var(--text-light); font-size: 0.9rem; border-top: 3px solid #c3dafb; }
+    .footer-links a { color: var(--primary-color); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--text-dark); }
+    .footer-links { margin-bottom: 0.5rem; }
+
+    @media(max-width:768px){ .categories { grid-template-columns: repeat(2, 1fr); } .document-list { grid-template-columns: 1fr; } header h1 { font-size:2rem; } header p { font-size:1rem; } .tab { padding:0.8rem 0.8rem; font-size: 0.9rem; } }
+    @media(max-width:480px){ .categories { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-placeholder"><i class="fas fa-landmark"></i></div>
+  <h1>UP Scholarship Hub</h1>
+  <p>उत्तर प्रदेश छात्रवृत्ति योजना: आवेदन, स्टेटस और ताज़ा अपडेट</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2 class="section-title"><i class="fas fa-file-alt"></i> ऑनलाइन आवेदन करें (Apply Online)</h2>
+
+    <div class="tabs">
+      <div class="tab active" id="freshersTab">Fresh (नया आवेदन)</div>
+      <div class="tab" id="renewalTab">Renewal (नवीनीकरण)</div>
+    </div>
+
+    <div class="categories">
+        <a href="#documents-required-section" class="btn btn-document" title="Check required documents list">
+            <i class="fas fa-file-invoice"></i> Document Required
+        </a>
+        <a href="https://scholarship.up.gov.in/RegistrationNew.aspx" class="btn btn-special" target="_blank" title="Aadhaar/Mobile OTP Based Registration">
+            <i class="fas fa-mobile-alt"></i> New Registration
+        </a>
+      <button class="btn" onclick="showCategory('general')"><i class="fas fa-user"></i> General</button>
+      <button class="btn" onclick="showCategory('obc')"><i class="fas fa-users"></i> OBC</button>
+      <button class="btn" onclick="showCategory('scst')"><i class="fas fa-graduation-cap"></i> SC/ST</button>
+    </div>
+
+    <div class="subcategories active" id="general"></div>
+    <div class="subcategories" id="obc"></div>
+    <div class="subcategories" id="scst"></div>
+  </div>
+
+  <div class="card" id="documents-required-section">
+      <h2 class="section-title"><i class="fas fa-paperclip"></i> आवश्यक दस्तावेज़ (Documents Required)</h2>
+      
+      <p style="margin-bottom: 1rem; font-style: italic; color: var(--text-light);">छात्रवृत्ति आवेदन के समय निम्नलिखित <strong>मूल दस्तावेज़ों</strong> की स्कैन की गई प्रतियां तैयार रखें:</p>
+      
+      <ul class="document-list">
+          <li><i class="fas fa-id-card-alt"></i> आधार कार्ड (Aadhaar Card)</li>
+          <li><i class="fas fa-receipt"></i> नवीनतम शुल्क रसीद (Fee Receipt)</li>
+          <li><i class="fas fa-file-invoice-dollar"></i> आय प्रमाण पत्र (Income Certificate)</li>
+          <li><i class="fas fa-home"></i> निवास प्रमाण पत्र (Domicile Certificate)</li>
+          <li><i class="fas fa-users"></i> जाति प्रमाण पत्र (Cast Certificate) - यदि लागू हो</li>
+          <li><i class="fas fa-university"></i> बैंक पासबुक (Bank Passbook)</li>
+          <li><i class="fas fa-poll-h"></i> पिछली कक्षा की मार्कशीट (Last Year Marksheet)</li>
+          <li><i class="fas fa-scroll"></i> हाई स्कूल प्रमाण पत्र (High School Certificate)</li>
+      </ul>
+      
+      <div class="pdf-link-container">
+          <a href="#" target="_blank" title="View official document checklist">
+              <i class="fas fa-file-pdf"></i> View Official PDF
+          </a>
+      </div>
+  </div>
+
+  <div class="card status-check-card">
+      <h2 class="section-title"><i class="fas fa-check-circle"></i> अपना स्टेटस चेक करें (Check Status)</h2>
+      <i class="fas fa-money-check-alt"></i>
+      <p>अपने आवेदन की <strong>वर्तमान स्थिति</strong>, बैंक सत्यापन और भुगतान का विवरण जानने के लिए यहाँ क्लिक करें।</p>
+      <a href="https://pfms.nic.in" class="status-check-btn" target="_blank">
+          आवेदन स्टेटस देखें <i class="fas fa-chevron-right"></i>
+      </a>
+  </div>
+
+  <div class="card news-section">
+    <h2 class="section-title"><i class="fas fa-bullhorn"></i> ताज़ा अपडेट्स और सूचनाएं (Latest News)</h2>
+    <div class="news-container">
+      
+      <a href="https://www.indiatoday.in/education-today/news/story/up-government-to-give-scholarships-to-48-lakh-obc-students-2804464-2025-10-17" class="news-box-link" target="_blank">
+        <h4>4.8 lakh OBC students to get scholarships in Uttar Pradesh</h4>
+        <p><strong> Rs 62.13 crore </strong>was distributed to benefit more than 2.5 lakh OBC studentsपूरी खबर पढ़ें <i class="fas fa-external-link-alt"></i></p>
+      </a>
+      
+      <a href="https://www.google.com/search?q=post+matric+other+intermediate+registration+last+date&sca_esv=602bc0460517bd79&rlz=1C1VDKB_enIN1112IN1112&biw=1707&bih=811&sxsrf=AE3TifNPcTko9AFCGBV8LIb_pGYBOaWDOA%3A1760726189334&ei=rYzyaPCZFICSseMP6ITQkAI&ved=0ahUKEwiwpL-Y8KuQAxUASWwGHWgCFCIQ4dUDCBE&uact=5&oq=post+matric+other+intermediate+registration+last+date&gs_lp=Egxnd3Mtd2l6LXNlcnAiNXBvc3QgbWF0cmljIG90aGVyIGludGVybWVkaWF0ZSByZWdpc3RyYXRpb24gbGFzdCBkYXRlMggQIRigARjDBDIIECEYoAEYwwRIgydQogVYuyFwAXgBkAEAmAGHAqABhBSqAQUwLjguNbgBA8gBAPgBAZgCC6AC8Q_CAgoQABiwAxjWBBhHwgIHECMYsAIYJ8ICCBAAGAgYDRgewgILEAAYgAQYhgMYigXCAgUQABjvBcICChAhGKABGMMEGArCAgQQIRgKmAMAiAYBkAYIkgcFMS41LjWgB9RusgcFMC41LjW4B-YPwgcGMi0xMC4xyAdC&sclient=gws-wiz-serp" class="news-box-link" target="_blank">
+        <h4>Post-Matric other Intermediate last date</h4>
+        <p>The last date for the UP Scholarship Post-Matric (Other than Intermediate) registration for 2025-26 is October 30, 2025<i class="fas fa-external-link-alt"></i></p>
+      </a>
+      
+      <a href="https://scholarships.gov.in/public/schemeGuidelines/Assam_Post_Matric_guideline.pdf" class="news-box-link" target="_blank">
+        <h4>Verification Guidelines Released</h4>
+        <p>UP सरकार ने सत्र 2025–26 के लिए कॉलेज सत्यापन के नए निर्देश जारी किए हैं।</p>
+      </a>
+      
+      <a href="https://www.google.com/search?q=post+matric+other+intermediary+bank+details+required&sca_esv=602bc0460517bd79&rlz=1C1VDKB_enIN1112IN1112&sxsrf=AE3TifMTdrBMlxV6gvzUgruin-jQX04Eag:1760726467321&source=lnms&sa=X&ved=2ahUKEwiqnIad8auQAxUe3TgGHWhPCZEQ0pQJegQIAhAF&biw=1707&bih=811&dpr=1.13" class="news-box-link" target="_blank">
+        <h4>Bank Details Update Required</h4>
+        <p>सभी छात्रों को <strong>31st October 2025</strong> से पहले अपने बैंक विवरण (Aadhar Link) अपडेट करने होंगे।</p>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://scholarship.up.gov.in/contact.aspx" target="_blank">संपर्क करें (Contact)</a> |
+        <a href="https://scholarship.up.gov.in/faq.aspx" target="_blank">FAQ</a> |
+        <a href="https://scholarship.up.gov.in/" target="_blank">Official Portal</a>
+    </div>
+    <p>Developed by Whatin Innovations | © 2025 All rights reserved.</p>
+</footer>
+
+<script>
+const tabs = document.querySelectorAll(".tab");
+const subcategoriesContainers = document.querySelectorAll(".subcategories");
+
+const freshData = { general:[{ text: "Post Matric Other than Intermediate (Fresh)", url:"https://scholarship.up.gov.in/LoginStudentPost.aspx" },{ text:"Post Matric other state student (Fresh)", url:"https://scholarship.up.gov.in/LoginStudentPostOS.aspx"},{ text:"Pre Matric (Class 9–10) (Fresh)", url:"https://scholarship.up.gov.in/LoginStudentPreFresh.aspx"}], obc:[{text:"Post Matric other than intermidiate(OBC) (Fresh)", url:"https://scholarship.up.gov.in/LoginStudentPost.aspx"},{text:"post matric other state student (OBC) (Fresh)", url:"https://scholarship.up.gov.in/LoginStudentPostOS.aspx"}], scst:[{text:"Post Matric other than intermidiate(SC/ST) (Fresh)", url:"https://scholarship.up.gov.in/LoginStudentPost.aspx"},{text:"post matric other state student(SC/ST) (Fresh)", url:"https://scholarship.up.gov.in/LoginStudentPostOS.aspx"}] };
+const renewalData = { general:[{ text: "Post Matric Other than Intermediate (Renewal)", url:"https://scholarship.up.gov.in/LoginStudentPostRenew.aspx" },{ text:"Post Matric other state student(Renewal)", url:"https://scholarship.up.gov.in/LoginStudentPostRenewOS.aspx"},{ text:"Pre Matric (Class 9–10) (Renewal)", url:"https://scholarship.up.gov.in/PreMatric_Renewal.aspx"}], obc:[{text:"Post Matric other than intermidiate (OBC) (Renewal)", url:"https://scholarship.up.gov.in/LoginStudentPostRenew.aspx"},{text:"Post Matric other state student (OBC) (Renewal)", url:"https://scholarship.up.gov.in/LoginStudentPostRenewOS.aspx"}], scst:[{text:"Post Matric other than intermidiate (SC/ST) (Renewal)", url:"https://scholarship.up.gov.in/LoginStudentPostRenew.aspx"},{text:"Post Matric other state student (SC/ST) (Renewal)", url:"https://scholarship.up.gov.in/LoginStudentPostRenewOS.aspx"}] };
+
+let currentTab = 'fresh';
+let activeCategory = 'general';
+
+function renderSubcategoryLinks(category, data){
+    const container = document.getElementById(category);
+    container.innerHTML='';
+    if(data[category]){
+        data[category].forEach(item=>{
+            const link=document.createElement('a');
+            link.href=item.url;
+            link.className='sub-btn';
+            link.target='_blank';
+            link.style.cursor='pointer';
+            link.innerHTML=`<span>${item.text}</span><i class="fas fa-arrow-right"></i>`;
+            container.appendChild(link);
+        });
+    }
+}
+
+function showCategory(category){
+  subcategoriesContainers.forEach(sub=>sub.classList.remove("active"));
+  document.getElementById(category).classList.add("active");
+  activeCategory = category;
+  const data=(currentTab==='fresh') ? freshData : renewalData;
+  renderSubcategoryLinks(activeCategory, data);
+}
+
+function switchTab(tabId){
+    const isFresh=(tabId==='freshersTab');
+    currentTab=isFresh ? 'fresh' : 'renewal';
+    tabs.forEach(t=>t.classList.remove("active"));
+    document.getElementById(tabId).classList.add("active");
+    renderSubcategoryLinks(activeCategory, isFresh ? freshData : renewalData);
+}
+
+tabs.forEach(tab=>{ tab.addEventListener("click",()=>{ switchTab(tab.id); }); });
+
+document.addEventListener('DOMContentLoaded',()=>{
+    showCategory('general');
+});
+
+window.showCategory=showCategory;
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3296618712266727"
+     crossorigin="anonymous"></script>
+
+</body>
+</html>
