@@ -383,5 +383,13 @@ menuBtn.addEventListener('click', () => {
      data-full-width="">
   <div overflow=""></div>
 </amp-ad>
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: 'https://whatin.app.n8n.cloud/webhook/c8edf549-b3d9-45d2-94cd-ec54f165bf5a/chat'
+	});
+</script>
 </body>
 </html>
