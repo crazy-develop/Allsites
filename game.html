@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flappy Game - Mobile Friendly</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(#9be3ff, #ffffff);
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      touch-action: manipulation; /* helps mobile tap control */
+    }
+
+    #scoreBox {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      z-index: 10;
+    }
+
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(#9be3ff, #ffffff);
+    }
+
+    #startBtn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #00c851;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 15;
+    }
+
+    #startBtn:hover {
+      background: #007e33;
+    }
+
+    @media (max-width: 600px) {
+      #startBtn {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      #scoreBox {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="scoreBox">Score: 0</div>
+  <canvas id="gameCanvas"></canvas>
+  <button id="startBtn">Start Game 🎮</button>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const scoreBox = document.getElementById("scoreBox");
+    const startBtn = document.getElementById("startBtn");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let gameStarted = false;
+    let gameOver = false;
+    let frame = 0;
+    let score = 0;
+    let pipes = [];
+
+    // 🖼️ Player image (👇 यहां अपनी image का path डालो)
+    const playerImg = new Image();
+    playerImg.src = "modiji.png"; // 🔄 यहां अपनी custom image लगाओ
+
+    // 🎵 Background music (game के दौरान)
+    const bgMusic = new Audio("game2.mp3"); // 🔄 यहां अपना background music लगाओ
+    bgMusic.loop = true;
+
+    // 🎵 Game over sound
+    const crashSound = new Audio("endgame.mp3"); // 🔄 यहां अपना game over sound लगाओ
+
+    let player = {
+      x: canvas.width / 5,
+      y: canvas.height / 2, // 👈 middle position
+      width: Math.min(canvas.width * 0.08, 60),
+      height: Math.min(canvas.width * 0.08, 60),
+      gravity: 0.4,
+      lift: -7,
+      velocity: 0,
+    };
+
+    // 🏔️ Draw animated mountains (top + bottom)
+    function drawMountains() {
+      ctx.fillStyle = "#60a66a";
+      ctx.beginPath();
+      ctx.moveTo(0, canvas.height);
+      for (let i = 0; i < canvas.width; i += 100) {
+        const peak = canvas.height - (Math.sin(i * 0.01 + frame * 0.03) * 40 + 80);
+        ctx.lineTo(i, peak);
+      }
+      ctx.lineTo(canvas.width, canvas.height);
+      ctx.closePath();
+      ctx.fill();
+
+      // mirrored mountain (bottom side)
+      ctx.save();
+      ctx.translate(0, canvas.height);
+      ctx.scale(1, -1);
+      ctx.fillStyle = "#4c8b5a";
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      for (let i = 0; i < canvas.width; i += 100) {
+        const peak = (Math.sin(i * 0.01 + frame * 0.03) * 40 + 80);
+        ctx.lineTo(i, peak);
+      }
+      ctx.lineTo(canvas.width, 0);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // 🎯 Pipes
+    function addPipe() {
+      const gap = canvas.height * 0.25;
+      const top = Math.random() * (canvas.height / 2);
+      pipes.push({
+        x: canvas.width,
+        y: top,
+        width: 70,
+        height: top,
+        gap: gap,
+      });
+    }
+
+    function drawPipes() {
+      ctx.fillStyle = "#1aa34a";
+      pipes.forEach(pipe => {
+        ctx.fillRect(pipe.x, 0, pipe.width, pipe.height);
+        ctx.fillRect(pipe.x, pipe.height + pipe.gap, pipe.width, canvas.height - pipe.height - pipe.gap);
+      });
+    }
+
+    function updatePipes() {
+      pipes.forEach(pipe => {
+        pipe.x -= 3;
+        if (
+          player.x < pipe.x + pipe.width &&
+          player.x + player.width > pipe.x &&
+          (player.y < pipe.height || player.y + player.height > pipe.height + pipe.gap)
+        ) {
+          endGame();
+        }
+
+        // Score increase
+        if (pipe.x + pipe.width === Math.floor(player.x)) {
+          score++;
+          scoreBox.innerText = "Score: " + score;
+        }
+      });
+      pipes = pipes.filter(pipe => pipe.x + pipe.width > 0);
+    }
+
+    function drawPlayer() {
+      ctx.drawImage(playerImg, player.x, player.y, player.width, player.height);
+    }
+
+    function updatePlayer() {
+      player.velocity += player.gravity;
+      player.y += player.velocity;
+
+      if (player.y + player.height > canvas.height || player.y < 0) {
+        endGame();
+      }
+    }
+
+    function endGame() {
+      if (gameOver) return;
+      gameOver = true;
+
+      bgMusic.pause();
+      crashSound.currentTime = 0;
+      crashSound.play();
+
+      // Delay overlay to ensure it’s above everything
+      setTimeout(() => {
+        ctx.fillStyle = "rgba(0,0,0,0.6)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "white";
+        ctx.font = "38px sans-serif";
+        ctx.fillText("Game Over!", canvas.width / 2 - 100, canvas.height / 2);
+        ctx.font = "20px sans-serif";
+        ctx.fillText("Tap or Press SPACE to Restart", canvas.width / 2 - 130, canvas.height / 2 + 40);
+      }, 50);
+    }
+
+    function resetGame() {
+      player.y = canvas.height / 2;
+      player.velocity = 0;
+      pipes = [];
+      score = 0;
+      frame = 0;
+      gameOver = false;
+      scoreBox.innerText = "Score: 0";
+      crashSound.pause();
+      crashSound.currentTime = 0;
+      bgMusic.currentTime = 0;
+      bgMusic.play();
+      loop();
+    }
+
+    function loop() {
+      if (!gameStarted || gameOver) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawMountains();
+
+      frame++;
+      if (frame % 110 === 0) addPipe();
+
+      updatePipes();
+      updatePlayer();
+      drawPipes();
+      drawPlayer();
+
+      requestAnimationFrame(loop);
+    }
+
+    // Controls
+    window.addEventListener("keydown", e => {
+      if (e.code === "Space") {
+        if (!gameStarted) startGame();
+        else if (gameOver) resetGame();
+        else player.velocity = player.lift;
+      }
+    });
+
+    canvas.addEventListener("touchstart", () => {
+      if (!gameStarted) startGame();
+      else if (gameOver) resetGame();
+      else player.velocity = player.lift;
+    });
+
+    startBtn.addEventListener("click", startGame);
+
+    function startGame() {
+      startBtn.style.display = "none";
+      gameStarted = true;
+      gameOver = false;
+      bgMusic.currentTime = 0;
+      bgMusic.play();
+      loop();
+    }
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      player.x = canvas.width / 5;
+      player.y = canvas.height / 2;
+    });
+  </script>
+</body>
+</html>
