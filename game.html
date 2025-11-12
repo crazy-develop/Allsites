@@ -12,8 +12,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Whatin Game Space </title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>WHATIN Game space 🎯</title>
   <style>
     * {
       margin: 0;
@@ -25,95 +26,175 @@
       background: linear-gradient(#9be3ff, #ffffff);
       overflow: hidden;
       font-family: 'Poppins', sans-serif;
-      touch-action: manipulation; /* helps mobile tap control */
+      touch-action: manipulation;
+      position: relative;
     }
 
     #scoreBox {
-      position: absolute;
+      position: fixed;
       top: 1rem;
       left: 1rem;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
       padding: 6px 14px;
       border-radius: 10px;
       font-size: 16px;
       font-weight: bold;
       color: #000;
-      z-index: 10;
+      z-index: 99999;
+      pointer-events: none;
+      display: none;
     }
 
     canvas {
-      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
+      display: block;
       background: linear-gradient(#9be3ff, #ffffff);
+      z-index: 1;
     }
 
-    #startBtn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    /* 🎯 Start Dashboard */
+    #dashboard {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #004aad, #5de0e6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      color: white;
+      text-align: center;
+    }
+
+    #dashboard h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    #dashboard input {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      width: 80%;
+      max-width: 280px;
+      text-align: center;
+      outline: none;
+    }
+
+    #dashboard button {
+      margin-top: 1rem;
       background: #00c851;
       color: white;
       border: none;
-      padding: 14px 28px;
+      padding: 12px 22px;
+      border-radius: 10px;
       font-size: 18px;
-      border-radius: 12px;
       cursor: pointer;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-      z-index: 15;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      transition: 0.2s;
     }
 
-    #startBtn:hover {
+    #dashboard button:hover {
       background: #007e33;
     }
 
-    @media (max-width: 600px) {
-      #startBtn {
-        font-size: 16px;
-        padding: 10px 20px;
-      }
+    /* 🏆 Leaderboard */
+    #leaderboard {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px 14px;
+      border-radius: 10px;
+      color: #000;
+      z-index: 9999;
+      max-width: 220px;
+      font-size: 14px;
+    }
 
-      #scoreBox {
-        font-size: 14px;
+    #leaderboard h3 {
+      margin: 0;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    #leaderboard ol {
+      margin: 5px 0 0 15px;
+      padding: 0;
+    }
+
+    @media (max-width: 600px) {
+      #dashboard h1 {
+        font-size: 1.7rem;
+      }
+      #dashboard button {
+        font-size: 16px;
+        padding: 10px 18px;
       }
     }
   </style>
 </head>
 <body>
+
   <div id="scoreBox">Score: 0</div>
   <canvas id="gameCanvas"></canvas>
-  <button id="startBtn">Start Game 🎮</button>
+
+  <!-- 🎮 Dashboard -->
+  <div id="dashboard">
+    <h1>Welcome to WHATIN Game Zone 🎮</h1>
+    <p>Enter your name to begin</p>
+    <input type="text" id="playerName" placeholder="Your name" />
+    <button id="startBtn">Start Game</button>
+  </div>
+
+  <!-- 🏆 Leaderboard -->
+  <div id="leaderboard">
+    <h3>🏆 Leaderboard</h3>
+    <ol id="leaderboardList"></ol>
+  </div>
 
   <script>
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
     const scoreBox = document.getElementById("scoreBox");
+    const dashboard = document.getElementById("dashboard");
     const startBtn = document.getElementById("startBtn");
+    const playerInput = document.getElementById("playerName");
+    const leaderboardList = document.getElementById("leaderboardList");
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     let gameStarted = false;
     let gameOver = false;
     let frame = 0;
     let score = 0;
     let pipes = [];
+    let playerName = "";
 
-    // 🖼️ Player image (👇 यहां अपनी image का path डालो)
     const playerImg = new Image();
-    playerImg.src = "modiji.png"; // 🔄 यहां अपनी custom image लगाओ
+    playerImg.src = "modiji.png";
 
-    // 🎵 Background music (game के दौरान)
-    const bgMusic = new Audio("game2.mp3"); // 🔄 यहां अपना background music लगाओ
+    const bgMusic = new Audio("game2.mp3");
     bgMusic.loop = true;
 
-    // 🎵 Game over sound
-    const crashSound = new Audio("endgame.mp3"); // 🔄 यहां अपना game over sound लगाओ
+    const crashSound = new Audio("endgame.mp3");
 
     let player = {
       x: canvas.width / 5,
-      y: canvas.height / 2, // 👈 middle position
+      y: canvas.height / 2,
       width: Math.min(canvas.width * 0.08, 60),
       height: Math.min(canvas.width * 0.08, 60),
       gravity: 0.4,
@@ -121,7 +202,7 @@
       velocity: 0,
     };
 
-    // 🏔️ Draw animated mountains (top + bottom)
+    // 🏔️ Background Mountains
     function drawMountains() {
       ctx.fillStyle = "#60a66a";
       ctx.beginPath();
@@ -133,25 +214,9 @@
       ctx.lineTo(canvas.width, canvas.height);
       ctx.closePath();
       ctx.fill();
-
-      // mirrored mountain (bottom side)
-      ctx.save();
-      ctx.translate(0, canvas.height);
-      ctx.scale(1, -1);
-      ctx.fillStyle = "#4c8b5a";
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      for (let i = 0; i < canvas.width; i += 100) {
-        const peak = (Math.sin(i * 0.01 + frame * 0.03) * 40 + 80);
-        ctx.lineTo(i, peak);
-      }
-      ctx.lineTo(canvas.width, 0);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
     }
 
-    // 🎯 Pipes
+    // Pipes
     function addPipe() {
       const gap = canvas.height * 0.25;
       const top = Math.random() * (canvas.height / 2);
@@ -182,11 +247,9 @@
         ) {
           endGame();
         }
-
-        // Score increase
         if (pipe.x + pipe.width === Math.floor(player.x)) {
           score++;
-          scoreBox.innerText = "Score: " + score;
+          scoreBox.textContent = "Score: " + score;
         }
       });
       pipes = pipes.filter(pipe => pipe.x + pipe.width > 0);
@@ -199,7 +262,6 @@
     function updatePlayer() {
       player.velocity += player.gravity;
       player.y += player.velocity;
-
       if (player.y + player.height > canvas.height || player.y < 0) {
         endGame();
       }
@@ -208,12 +270,12 @@
     function endGame() {
       if (gameOver) return;
       gameOver = true;
-
       bgMusic.pause();
       crashSound.currentTime = 0;
       crashSound.play();
+      saveScore(playerName, score);
+      updateLeaderboard();
 
-      // Delay overlay to ensure it’s above everything
       setTimeout(() => {
         ctx.fillStyle = "rgba(0,0,0,0.6)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -232,7 +294,7 @@
       score = 0;
       frame = 0;
       gameOver = false;
-      scoreBox.innerText = "Score: 0";
+      scoreBox.textContent = "Score: 0";
       crashSound.pause();
       crashSound.currentTime = 0;
       bgMusic.currentTime = 0;
@@ -242,18 +304,14 @@
 
     function loop() {
       if (!gameStarted || gameOver) return;
-
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       drawMountains();
-
       frame++;
       if (frame % 110 === 0) addPipe();
-
       updatePipes();
       updatePlayer();
       drawPipes();
       drawPlayer();
-
       requestAnimationFrame(loop);
     }
 
@@ -272,10 +330,18 @@
       else player.velocity = player.lift;
     });
 
-    startBtn.addEventListener("click", startGame);
+    startBtn.addEventListener("click", () => {
+      playerName = playerInput.value.trim();
+      if (playerName === "") {
+        alert("Please enter your name first!");
+        return;
+      }
+      dashboard.style.display = "none";
+      scoreBox.style.display = "block";
+      startGame();
+    });
 
     function startGame() {
-      startBtn.style.display = "none";
       gameStarted = true;
       gameOver = false;
       bgMusic.currentTime = 0;
@@ -283,12 +349,27 @@
       loop();
     }
 
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      player.x = canvas.width / 5;
-      player.y = canvas.height / 2;
-    });
+    // 🧠 Leaderboard Functions
+    function saveScore(name, score) {
+      let scores = JSON.parse(localStorage.getItem("leaderboard")) || [];
+      scores.push({ name, score });
+      scores.sort((a, b) => b.score - a.score);
+      scores = scores.slice(0, 5);
+      localStorage.setItem("leaderboard", JSON.stringify(scores));
+    }
+
+    function updateLeaderboard() {
+      let scores = JSON.parse(localStorage.getItem("leaderboard")) || [];
+      leaderboardList.innerHTML = "";
+      scores.forEach(s => {
+        const li = document.createElement("li");
+        li.textContent = `${s.name}: ${s.score}`;
+        leaderboardList.appendChild(li);
+      });
+    }
+
+    updateLeaderboard();
   </script>
 </body>
 </html>
+
