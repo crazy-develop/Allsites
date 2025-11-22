@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /ads.txt
+Allow: /
+
+Sitemap: https://whatin.in/sitemap.xml
